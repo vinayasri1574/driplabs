@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Header</title>
+</head>
+<style>
+html {
+    scroll-behavior: smooth;
+    /* height: 5790px; */
+}
+body {
+    min-height: 200vh; /* Ensures scrolling is possible */
+}
+
+
+
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: url('driphero.webp') no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align content to the left */
+        padding-left: 8%;
+        color: white;
+    }
+
+    /* Dark Overlay */
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* Adjust for darkness */
+    }
+
+    /* Text Content */
+    .hero-content {
+        position: relative;
+        max-width: 600px;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+    opacity: 0.9;
+    white-space: nowrap;  /* Prevents text from wrapping */
+    overflow: hidden;  /* Hides overflowing text */
+    border-right: 3px solid white;  /* Cursor effect */
+    display: inline-block;
+}
+
+/* Typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Blinking cursor */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+
+    /* Buttons */
+    .hero-buttons {
+        margin-top: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        margin-right: 10px;
+        background: white;
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: 0.3s;
+        font-size: 1rem;
+    }
+
+    .btn:hover {
+        background: #ddd;
+    }
+    .iv-therapy-section {
+    background: #f8f4f2;
+    padding: 50px 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-content {
+    text-align: left;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.text-content h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3c2a2a;
+}
+
+.text-content p {
+    font-size: 16px;
+    color: #5a4a4a;
+    margin-top: 10px;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+}
+
+
+
+.icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.icon img {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.icon span {
+    position: relative;
+    display: inline-block;
+}
+
+.icon span:after {
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.05) !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    content: "";
+    border-radius: 100%;
+}
+
+.text {
+    flex: 1;
+}
+
+h4 {
+    font-size: 18px;
+    color: #3c2a2a;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dropdown-content {
+    font-size: 14px;
+    color: #5a4a4a;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    padding: 0 0px;
+}
+
+.active .dropdown-content {
+    max-height: 100px;
+    padding: 10px 0;
+}
+
+/* 3rd section */
+
+.iv-recharge-section {
+    background: #fff;
+    padding: 50px 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+/* Left Side - Image */
+.image-container {
+    flex: 1;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Right Side - Text */
+.text-container {
+    flex: 1;
+    text-align: left;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #222;
+    margin: 10px 0;
+}
+
+.highlight {
+    color: #ff6600; /* Orange */
+    font-weight: bold;
+}
+
+.highlight2 {
+    color: #222; /* Dark Text */
+    font-weight: bold;
+}
+
+.description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Bullet Points */
+.benefits {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits li {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.benefits li::before {
+    content: "•";
+    color: #ff6600;
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background: #ff6600;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: #e55d00;
+}
+
+/* 4th section */
+.discover-container {
+    background-image: url('grid-line-pattern.svg'); /* Ensures correct path */
+    background-size: cover;  /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the background */
+    background-repeat: no-repeat; /* Prevents repeating */
+    color: white;
+    padding: 50px 20px;
+    background-color: black; /* Fallback in case the image fails to load */
+}
+
+.discover-subtitle {
+    color: gray;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    /* background-color: black; */
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.discover-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    /* background-color: black; */
+
+   
+}
+
+.discover-highlight {
+    color: red;
+}
+
+/* Tabs Styling */
+.discover-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.discover-tab {
+    background-color: #222;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.discover-tab.discover-active {
+    background-color: yellow;
+    color: black;
+}
+@media (max-width: 768px) {
+    .discover-title {
+        font-size: 28px; /* Slightly smaller for mobile */
+    }
+
+    .discover-subtitle {
+        font-size: 12px;
+        padding: 15px;
+    }
+
+    .discover-tabs {
+        flex-direction: column; /* Stack tabs vertically */
+        align-items: center;
+        gap: 5px;
+    }
+
+    .discover-tab {
+        width: 80%; /* Make tabs wider for easy tapping */
+        text-align: center;
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .discover-title {
+        font-size: 24px; /* Smaller text for smaller screens */
+    }
+
+    .discover-tab {
+        width: 100%; /* Full width for better UX */
+    }
+}
+
+/* Content Section */
+.discover-content {
+    background-color: #222; /* Dark background */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+    text-align: left;
+    position: relative; /* Needed for absolute positioning */
+    overflow: hidden; /* Ensures SVG stays within bounds */
+}
+
+.discover-content::before {
+    content: ""; /* Creates a pseudo-element for the SVG */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1199" height="379" viewBox="0 0 1199 379" fill="none"><path opacity="0.2" d="M-79.8516 364.306C-76.4575 317.404 -24.1791 305.943 15.4406 298.419C64.7536 289.054 126.425 280.735 176.53 290.143C207.973 296.046 235.918 316.425 265.015 328.604C314.005 349.109 374.413 364.001 427.725 357.328C479.262 350.877 520.402 310.346 561.264 281.704C590.218 261.408 617.83 238.748 654.287 236.427C704.402 233.236 760.788 231.016 808.245 249.572C844.67 263.814 878.567 293.777 919.095 294.2C999.421 295.038 1038.33 211.327 1094.12 168.106C1116.45 150.807 1142.84 159.267 1167.05 148.47C1212.26 128.308 1245.93 71.6216 1243.22 22.0517C1241.81 -3.77439 1222.11 -20.4403 1196.87 -17.7076C1165.06 -14.2639 1161.52 71.4618 1160.57 92.6446C1157.19 167.863 1165.12 241.827 1207.4 306.371C1227.67 337.305 1262.89 373.069 1302.86 373.069" stroke="%23393939" stroke-width="10.3457" stroke-linecap="round" /></svg>');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Adjust transparency */
+    z-index: 0; /* Places it behind content */
+}
+
+.discover-content * {
+    position: relative; /* Ensures text stays above SVG */
+    z-index: 1;
+}
+
+.discover-content img {
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.discover-details h3 {
+    font-size: 24px;
+}
+
+.discover-details p {
+    color: lightgray;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.discover-order-btn {
+    background-color: red;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.discover-order-btn:hover {
+    background-color: darkred;
+}
+@media (max-width: 768px) {
+    .discover-content {
+        flex-direction: column; /* Stack image and text */
+        text-align: center; /* Center align for better UX */
+        padding: 15px;
+    }
+
+    .discover-content img {
+        width: 100%; /* Full width image */
+        max-width: 250px; /* Prevents excessive stretching */
+        margin: 0 auto 15px; /* Centers image and adds spacing */
+    }
+
+    .discover-details h3 {
+        font-size: 20px;
+    }
+
+    .discover-details p {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+
+    .discover-order-btn {
+        width: 100%; /* Full width button */
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* 5th section */
+
+.infusion-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.infusion-container {
+    display: flex;
+    max-width: 1100px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.infusion-image {
+    flex: 1;
+}
+
+.infusion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.infusion-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.infusion-content h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.infusion-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.register-btn {
+    background-color: #b1904d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #a0803d;
+}
+@media (max-width: 768px) {
+    .infusion-section {
+        padding: 30px 10px;
+    }
+
+    .infusion-container {
+        flex-direction: column;
+        max-width: 100%;
+        border-radius: 15px;
+    }
+
+    .infusion-image {
+        width: 100%;
+    }
+
+    .infusion-image img {
+        border-radius: 15px 15px 0 0;
+        height: 250px;
+    }
+
+    .infusion-content {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .infusion-content h2 {
+        font-size: 24px;
+    }
+
+    .infusion-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .register-btn {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* testimonial section */
+
+.testimonial-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.sub-heading {
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.heading {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.heading span {
+    color: #ff4d4d;
+}
+
+.description {
+    font-size: 18px;
+    color: #555;
+}
+
+.highlight {
+    color: #ff4d4d;
+    font-weight: 600;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.fact-box {
+    background: #000;
+    color: white;
+    padding: 30px;
+    width: 250px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.fact-box h4 {
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.percentage {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ffc107;
+    margin: 10px 0;
+}
+
+.fact-text {
+    font-size: 14px;
+}
+
+.carousel {
+    width: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.review-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    display: none;
+}
+
+.review-box.active {
+    display: block;
+}
+
+.review-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-size: 14px;
+    color: #444;
+    font-weight: bold;
+}
+
+.stars {
+    font-size: 18px;
+    color: #ffc107;
+}
+
+.carousel {
+    width: 400px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+.review-box.active {
+    display: block;
+}
+
+.carousel-buttons {
+    margin-top: 10px; /* Adjust space between reviews and buttons */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-buttons button {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-buttons button:hover {
+    background: #ff4d4d;
+}
+
+@media (max-width: 768px) {
+    .testimonial-section {
+        padding: 40px 10px;
+    }
+
+    .heading {
+        font-size: 26px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .testimonial-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .fact-box {
+        width: 90%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .percentage {
+        font-size: 40px;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .review-box {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .carousel-buttons {
+        gap: 8px;
+    }
+
+    .carousel-buttons button {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+
+/* customer */
+
+.customer-hero-section {
+    background: #f9f9f9;
+    padding: 50px 10%;
+}
+
+.customer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customer-text-content {
+    width: 55%;
+}
+
+.customer-text-content h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.customer-text-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.customer-image-content {
+    width: 40%;
+}
+
+.customer-image-content img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.customer-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 20px 0;
+}
+
+.customer-stat-box {
+    text-align: center;
+    flex: 1;
+}
+
+.customer-stat-box h2 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #222;
+}
+
+.customer-stat-box p {
+    font-size: 16px;
+    color: #444;
+    font-weight: bold;
+}
+@media (max-width: 768px) {
+    .customer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .customer-text-content, 
+    .customer-image-content {
+        width: 100%;
+    }
+
+    .customer-text-content h1 {
+        font-size: 28px;
+    }
+
+    .customer-text-content p {
+        font-size: 14px;
+    }
+
+    .customer-image-content {
+        margin-top: 20px;
+    }
+
+    .customer-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .customer-stat-box {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    .customer-stat-box h2 {
+        font-size: 36px;
+    }
+
+    .customer-stat-box p {
+        font-size: 14px;
+    }
+}
+
+
+/* customer investment */
+
+.customer-investment-section {
+    background: #F5AF23; /* Yellow background */
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+}
+.customer-investment-content{
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.customer-investment-content h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.customer-investment-content p {
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.customer-investment-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.customer-investment-btn:hover {
+    background: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .customer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .customer-text-content, 
+    .customer-image-content {
+        width: 100%;
+    }
+
+    .customer-stats {
+        flex-direction: column;
+    }
+
+    .customer-stat-box {
+        flex: 1 1 100%;
+    }
+
+    .customer-investment-content {
+        padding: 0 10px;
+    }
+}
+
+</style>
+<body>
+
+<!-- Top Bar -->
+<div class="bg-blue-800 text-white text-sm py-3 px-6 flex justify-end space-x-6">
+    <a href="#" class="hover:underline">Location</a>
+    <a href="#" class="hover:underline">FAQs</a>
+    <a href="#" class="hover:underline">About Us</a>
+    <button class="hover:text-gray-300">
+        <svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.65 11.65z"></path>
+        </svg>
+    </button>
+</div>
+
+<!-- Main Navigation -->
+<header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#" class="text-xl font-bold">
+            <img src="logo.png" alt="Logo" class="h-10">
+        </a>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex space-x-6 items-center text-blue-700 font-semibold">
+            <div class="relative group">
+                <button class="flex items-center">
+                    DRIP SELECTION
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="absolute left-0 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-white shadow-md mt-2 py-2 w-48 rounded-md pointer-events-none group-hover:pointer-events-auto">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Hydration</a>
+                    <a href="detox.html" class="block px-4 py-2 hover:bg-gray-100">Detox</a>
+                </div>
+            </div>
+        
+            <div class="relative group">
+                <button class="flex items-center">
+                    NAD+ IV DRIP
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="absolute left-0 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-white shadow-md mt-2 py-2 w-48 rounded-md pointer-events-none group-hover:pointer-events-auto">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Energy Boost</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Immunity</a>
+                </div>
+            </div>
+        
+            <div class="relative group">
+                <button class="flex items-center">
+                    AT-HOME SERVICES
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="absolute left-0 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-white shadow-md mt-2 py-2 w-48 rounded-md pointer-events-none group-hover:pointer-events-auto">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Wellness Plans</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Consultations</a>
+                </div>
+            </div>
+        
+            <div class="relative group">
+                <button class="flex items-center">
+                    FRANCHISE
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+        
+            <div class="relative group">
+                <button class="flex items-center">
+                    MEMBERSHIP
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+
+        <!-- Book Now Button -->
+        <a href="#" class="bg-blue-700 text-white px-5 py-2 rounded-full hover:bg-blue-800 font-semibold">
+            Book Now
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-6 space-y-2">
+        <a href="#" class="block text-blue-700">IV Drip Therapy</a>
+        <a href="#" class="block text-blue-700">Vitamin Shots</a>
+        <a href="#" class="block text-blue-700">Our Services</a>
+        <a href="#" class="block text-blue-700">Genetics</a>
+        <a href="#" class="block text-blue-700">Nutrients</a>
+        <a href="#" class="block text-blue-700">R LIFE Blog</a>
+        <a href="#" class="block bg-blue-700 text-white text-center py-2 rounded-md">Book Now</a>
+    </div>
+
+</header>
+<section class="hero">
+    <div class="hero-content">
+        <h1>IV Infusion Therapy</h1>
+        <p>IN HEALTH, GET DRIP'D!</p>
+        
+        
+        <div class="hero-buttons">
+            <a href="#" class="btn">View Our Drips</a>
+            <a href="#" class="btn">Get a Membership</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- 2nd section -->
+<section class="iv-therapy-section">
+    <div class="container">
+        <div class="left-content">
+            <div class="text-content">
+                <h2>Tailored IV Therapy Drips for a Healthier You</h2>
+                <p>
+                    Our experienced medical professionals work closely with every patient to understand their individual 
+                    needs and create a personalized IV Therapy plan that aligns with their goals.
+                </p>
+            </div>
+
+            <div class="steps">
+                <div class="step" onclick="toggleDropdown(this)">
+                    <div class="icon">
+                        <span><img src="icon1.png" alt="Select Drip"></span>
+                    </div>
+                    <div class="text">
+                        <h4>SELECT YOUR DRIP</h4>
+                        <p class="dropdown-content">
+                            Browse our diverse range of options to find the perfect match for your nutrient and health needs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step" onclick="toggleDropdown(this)">
+                    <div class="icon">
+                        <span><img src="icon2.png" alt="Book Appointment"></span>
+                    </div>
+                    <div class="text">
+                        <h4>BOOK YOUR APPOINTMENT</h4>
+                        <p class="dropdown-content">
+                            Pick a convenient time and day for your selected IV drip at our clinic.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step" onclick="toggleDropdown(this)">
+                    <div class="icon">
+                        <span><img src="icon3.png" alt="Quick Consultation"></span>
+                    </div>
+                    <div class="text">
+                        <h4>QUICK CONSULTATION</h4>
+                        <p class="dropdown-content">
+                            Our doctor will review your medical history and assess your vitals before the treatment.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step" onclick="toggleDropdown(this)">
+                    <div class="icon">
+                        <span><img src="icon4.png" alt="Time for Drip"></span>
+                    </div>
+                    <div class="text">
+                        <h4>TIME FOR THE DRIP</h4>
+                        <p class="dropdown-content">
+                            Our medical expert will safely administer the drip, making the entire process comfortable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="your-image.png" alt="IV Therapy">
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 3rd section -->
+
+<section class="iv-recharge-section">
+    <div class="container">
+        <!-- Left Side - IV Bags Image -->
+        <div class="image-container">
+            <img src="iv-bags.png" alt="IV Therapy Bags">
+        </div>
+
+        <!-- Right Side - Text Content -->
+        <div class="text-container">
+            <p class="subtitle">OUR STRENGTH</p>
+            <h2>Why <span class="highlight">Recharge</span> <span class="highlight2">IV Therapy?</span></h2>
+            <p class="description">
+                IV therapy ensures rapid, direct nutrient absorption into your bloodstream, bypassing the digestive system for swift and efficient results.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="benefits">
+                <li>🟠 IV therapy offers fast & efficient absorption of nutrients.</li>
+                <li>🟠 Customizable to address specific health concerns.</li>
+                <li>🟠 Provides quick and effective hydration.</li>
+                <li>🟠 IV therapy can be administered at your location & time.</li>
+                <li>🟠 Effective for a range of health issues & immune support.</li>
+            </ul>
+
+            <!-- Call-to-Action Button -->
+            <a href="#" class="cta-button">Book your drip now</a>
+        </div>
+    </div>
+</section>
+
+<!-- 4th section -->
+
+<div class="discover-container">
+    <p class="discover-subtitle">Discover Your Drip</p>
+    <h2 class="discover-title">How Are You <span class="discover-highlight">Feeling?</span></h2>
+
+    <!-- Tab Buttons -->
+    <div class="discover-tabs">
+        <button class="discover-tab discover-active" data-tab="fatigue">⚔️ Fatigue</button>
+        <button class="discover-tab" data-tab="immunity">🛡️ Low Immunity</button>
+        <button class="discover-tab" data-tab="sleep">🌙 Sleep Deprived</button>
+        <button class="discover-tab" data-tab="fog">💭 Mental Fog</button>
+        <button class="discover-tab" data-tab="stress">💖 Stress</button>
+        <button class="discover-tab" data-tab="vacation">🌞 Post Vacation</button>
+    </div>
+
+    <!-- Content Section -->
+    <div class="discover-content">
+        <img id="discover-ivImage" src="iv-bag-fatigue.png" alt="IV Bag">
+        <div class="discover-details">
+            <h3 id="discover-treatmentTitle">All Inclusive IV Treatment</h3>
+            <p id="discover-treatmentDesc">
+                Experience comprehensive well-being with our ‘All-Inclusive IV Treatment.’ Tailored to your needs, it offers hydration, vitamins, detox, and immune support in one session, ensuring you leave revitalized and ready to conquer the day.
+            </p>
+            <button class="discover-order-btn">Order now</button>
+            <button class="discover-order-btn">Order now</button>
+        </div>
+    </div>
+</div>
+
+<!-- 5th section -->
+<section class="infusion-section">
+    <div class="infusion-container">
+        <div class="infusion-image">
+            <img src="image.png" alt="Infusion Therapy">
+        </div>
+        <div class="infusion-content">
+            <h2>DripDrip infusions for your practice</h2>
+            <p>Expand your offering with innovative IV therapies. Increase your sales while your patients benefit from individually tailored infusions for greater well-being and health. We support you with training and marketing material. If you are interested, simply fill out the questionnaire - we will get back to you within 48 hours.</p>
+            <button class="register-btn">Please register here</button>
+        </div>
+    </div>
+</section>
+
+<!-- 6th section -->
+<section class="infusion-section">
+    <div class="infusion-container">
+        
+        <div class="infusion-content">
+            <h2>DripDrip infusions for your practice</h2>
+            <p>Expand your offering with innovative IV therapies. Increase your sales while your patients benefit from individually tailored infusions for greater well-being and health. We support you with training and marketing material. If you are interested, simply fill out the questionnaire - we will get back to you within 48 hours.</p>
+            <button class="register-btn">Please register here</button>
+        </div>
+        <div class="infusion-image">
+            <img src="image.png" alt="Infusion Therapy">
+        </div>
+    </div>
+</section>
+
+<!-- testimonial section -->
+<section class="testimonial-section">
+    <h3 class="sub-heading">TESTIMONIAL</h3>
+    <h2 class="heading">The Feeling Is <span>Real!</span></h2>
+    <p class="description">We’re thankful to have provided IV therapy to more than <span class="highlight">10,000</span> patients.</p>
+
+    <div class="testimonial-container">
+        <div class="fact-box">
+            <h4>FACTS AND NUMBERS</h4>
+            <p class="percentage">96%</p>
+            <p class="fact-text">of customers recommend Recharge IV therapy</p>
+        </div>
+
+        <div class="carousel">
+            <div class="review-box">
+                <h4>REVIEW</h4>
+                <p class="review-text">I can’t thank you enough for the incredible service. The nurse was punctual, professional, and made me feel at ease. The IV therapy really boosted my energy.</p>
+                <p class="review-author">Jason Mitchell</p>
+                <p class="stars">⭐⭐⭐⭐⭐</p>
+            </div>
+            <div class="review-box">
+                <h4>REVIEW</h4>
+                <p class="review-text">Amazing experience! I felt so refreshed and energized. The staff was so friendly and caring. Highly recommend!</p>
+                <p class="review-author">Sarah Johnson</p>
+                <p class="stars">⭐⭐⭐⭐⭐</p>
+            </div>
+            <div class="review-box">
+                <h4>REVIEW</h4>
+                <p class="review-text">Great service and a wonderful team. The IV therapy helped me recover quickly. Would definitely do it again.</p>
+                <p class="review-author">David Brown</p>
+                <p class="stars">⭐⭐⭐⭐⭐</p>
+            </div>
+        </div>
+
+        <div class="carousel-buttons">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+    </div>
+</section>
+<!-- customer -->
+
+<section class="customer-hero-section">
+    <div class="customer-container">
+        <div class="customer-text-content">
+            <h1>Your health is our mission – drip by drip!</h1>
+            <p>
+                At DripDrip, we are redefining wellness by putting our customers at the center of everything we do. 
+                We offer personalized IV therapies tailored to your needs to help you show your best side every day. 
+                By combining medical expertise, high-quality ingredients, and a focus on your well-being, we create a 
+                unique and effective wellness experience. Whether you are looking for new energy, recovery, or relaxation, 
+                our exclusive IV Therapy Bars offer you a tranquil place to rejuvenate that is precisely tailored to your 
+                health goals.
+            </p>
+        </div>
+        <div class="customer-image-content">
+            <img src="your-image.jpg" alt="DripDrip Team">
+        </div>
+    </div>
+
+    <div class="customer-stats">
+        <div class="customer-stat-box">
+            <h2>4</h2>
+            <p><strong>Central locations in Germany</strong></p>
+        </div>
+        <div class="customer-stat-box">
+            <h2>4.8</h2>
+            <p>customer reviews on Google</p>
+        </div>
+        <div class="customer-stat-box">
+            <h2>6k</h2>
+            <p>Infusions administered to date</p>
+        </div>
+    </div>
+</section>
+
+<section class="customer-investment-section">
+    <div class="customer-investment-content">
+        <h1>Long-term health benefits are an investment and you are worth it.</h1>
+        <p>Recharge IV Drip: Wellness Elevated</p>
+        <button class="customer-investment-btn">Book Your Drip Now</button>
+    </div>
+</section>
+
+
+<script>
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+    
+    function toggleDropdown(selectedStep) {
+    let allSteps = document.querySelectorAll(".step");
+    
+    allSteps.forEach((step) => {
+        if (step === selectedStep) {
+            step.classList.toggle("active");
+        } else {
+            step.classList.remove("active");
+        }
+    });
+}
+const tabs = document.querySelectorAll(".discover-tab");
+const title = document.getElementById("discover-treatmentTitle");
+const description = document.getElementById("discover-treatmentDesc");
+const ivImage = document.getElementById("discover-ivImage");
+
+// Data for each tab
+const treatments = {
+    fatigue: {
+        title: "All Inclusive IV Treatment",
+        desc: "Experience comprehensive well-being with our ‘All-Inclusive IV Treatment.’ Hydration, vitamins, and detox support in one session.",
+        img: "iv-bag-fatigue.png"
+    },
+    immunity: {
+        title: "Immunity Boost IV",
+        desc: "Strengthen your immune system with a blend of vitamins and antioxidants to keep you protected.",
+        img: "iv-bag-immunity.png"
+    },
+    sleep: {
+        title: "Sleep Support IV",
+        desc: "Promotes relaxation and deep sleep with essential nutrients and hydration.",
+        img: "iv-bag-sleep.png"
+    },
+    fog: {
+        title: "Mental Clarity IV",
+        desc: "Enhance focus and reduce brain fog with a customized blend of essential nutrients.",
+        img: "iv-bag-fog.png"
+    },
+    stress: {
+        title: "Stress Relief IV",
+        desc: "Reduce anxiety and stress with calming ingredients and hydration.",
+        img: "iv-bag-stress.png"
+    },
+    vacation: {
+        title: "Post-Vacation Recovery IV",
+        desc: "Rehydrate and refresh after a long trip with essential vitamins.",
+        img: "iv-bag-vacation.png"
+    }
+};
+
+// Add click event to each tab
+tabs.forEach(tab => {
+    tab.addEventListener("click", function () {
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove("discover-active"));
+
+        // Add active class to the clicked tab
+        this.classList.add("discover-active");
+
+        // Get the tab name from data attribute
+        const tabName = this.getAttribute("data-tab");
+
+        // Update content dynamically
+        title.textContent = treatments[tabName].title;
+        description.textContent = treatments[tabName].desc;
+        ivImage.src = treatments[tabName].img;
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const reviews = document.querySelectorAll(".review-box");
+    let currentIndex = 0;
+
+    function showReview(index) {
+        reviews.forEach((review, i) => {
+            review.classList.toggle("active", i === index);
+        });
+    }
+
+    document.getElementById("prev").addEventListener("click", function () {
+        currentIndex = (currentIndex === 0) ? reviews.length - 1 : currentIndex - 1;
+        showReview(currentIndex);
+    });
+
+    document.getElementById("next").addEventListener("click", function () {
+        currentIndex = (currentIndex === reviews.length - 1) ? 0 : currentIndex + 1;
+        showReview(currentIndex);
+    });
+
+    // Show the first review by default
+    showReview(currentIndex);
+});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
+function typeEffect(element, texts, speed, delay) {
+    let textIndex = 0;
+    let i = 0;
+
+    function typing() {
+        if (i < texts[textIndex].length) {
+            element.innerHTML += texts[textIndex].charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        } else {
+            setTimeout(() => {
+                element.innerHTML = ""; // Clear text
+                i = 0;
+                textIndex = (textIndex + 1) % texts.length; // Move to next sentence
+                typing(); // Restart typing with the next sentence
+            }, delay); // Wait before showing next text
+        }
+    }
+
+    typing();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const heroParagraph = document.querySelector(".hero p");
+    const texts = [
+        "IN HEALTH, GET DRIP'D!",
+        "MAXIMIZE HEALTH",
+        "IMPROVE WELLNESS"
+    ]; // Add more sentences here
+
+    heroParagraph.innerText = ""; // Clear text for animation
+    typeEffect(heroParagraph, texts, 50, 2000); // Speed = 50ms, Delay = 2s
+});
+
+
+
+
+</script>
+
+
+</body>
+</html>
