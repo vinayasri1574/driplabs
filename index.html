@@ -103,7 +103,7 @@ body {
     padding: 50px 20px;
 }
 
-.container {
+.containers {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -211,6 +211,120 @@ h4 {
     max-height: 100px;
     padding: 10px 0;
 }
+/* Ensure flex layouts adapt well to smaller screens */
+@media (max-width: 1024px) {
+    .containers {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .text-content {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .steps {
+        gap: 15px;
+    }
+
+    .step {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+
+    .dropdown-content {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .containers {
+        padding: 20px;
+    }
+
+    .text-content h2 {
+        font-size: 24px;
+    }
+
+    .text-content p {
+        font-size: 14px;
+    }
+
+    .steps {
+        gap: 10px;
+    }
+
+    .step {
+        padding: 10px;
+    }
+
+    .icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .icon img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .text-content h2 {
+        font-size: 20px;
+    }
+
+    .text-content p {
+        font-size: 12px;
+    }
+
+    .steps {
+        gap: 5px;
+    }
+
+    .step {
+        padding: 8px;
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+
+    .dropdown-content {
+        font-size: 12px;
+    }
+}
 
 /* 3rd section */
 
@@ -311,7 +425,19 @@ h2 {
 .cta-button:hover {
     background: #e55d00;
 }
+@media (max-width: 768px) {
+    .cta-button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
 
+@media (max-width: 480px) {
+    .cta-button {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
 /* 4th section */
 .discover-container {
     background-image: url('grid-line-pattern.svg'); /* Ensures correct path */
@@ -1107,7 +1233,7 @@ h2 {
 
 <!-- 2nd section -->
 <section class="iv-therapy-section">
-    <div class="container">
+    <div class="containers">
         <div class="left-content">
             <div class="text-content">
                 <h2>Tailored IV Therapy Drips for a Healthier You</h2>
