@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Dropdown Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .lab-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #0026ff;
+            position: relative;
+        }
+        .lab-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .lab-nav {
+            display: flex;
+            gap: 20px;
+        }
+        .lab-nav a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            padding: 0px 12px;
+            transition: color 0.3s ease-in-out;
+        }
+        .lab-nav > a::after {
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            content: "";
+            height: 2px;
+            width: 100%;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s cubic-bezier(0.694, 0, 0.335, 1);
+        }
+        .lab-nav > a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .lab-dropdown {
+            position: relative;
+        }
+        .lab-dropdown a i {
+            transition: transform 0.3s ease-in-out;
+        }
+        .lab-dropdown:hover a i {
+            transform: rotate(180deg);
+        }
+        .lab-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .lab-dropdown:hover .lab-dropdown-menu,
+        .lab-dropdown.active .lab-dropdown-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .lab-dropdown-menu a {
+            position: relative;
+            color: #0026ff;
+            padding: 12px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .lab-dropdown-menu a::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #0026ff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in-out;
+            z-index: -1;
+        }
+        .lab-dropdown-menu a:hover {
+            color: white;
+        }
+        .lab-dropdown-menu a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .lab-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .lab-book-now {
+            background: white;
+            color: #0026ff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+        }
+        .lab-book-now:hover {
+            transform: scale(1.1);
+        }
+        .lab-mobile-menu {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background: #0026ff;
+            padding: 20px;
+            transition: right 0.5s ease-in-out;
+            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .lab-mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .lab-mobile-menu.active {
+            right: 0;
+        }
+        .lab-close-btn {
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .lab-nav {
+                display: none;
+            }
+            .lab-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="lab-header">
+        <div class="lab-logo">REVIV</div>
+        <nav class="lab-nav">
+            <a href="#">IV Drip Therapy</a>
+            <a href="#">Vitamin Shots</a>
+            <div class="lab-dropdown">
+                <a href="#">Our Services <i class="fas fa-chevron-down"></i></a>
+                <div class="lab-dropdown-menu">
+                    <a href="#">Wellness</a>
+                    <a href="#">Anti-Aging</a>
+                    <a href="#">Recovery</a>
+                </div>
+            </div>
+            <a href="#">Genetics</a>
+            <a href="#">Nutrients</a>
+        </nav>
+        <a href="#" class="lab-book-now">Book Now</a>
+        <button class="lab-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        <div class="lab-mobile-menu" id="mobileMenu">
+            <button class="lab-close-btn" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+            <a href="#">IV Drip Therapy</a>
+            <a href="#">Vitamin Shots</a>
+            <a href="#">Our Services</a>
+            <a href="#">Genetics</a>
+            <a href="#">Nutrients</a>
+        </div>
+    </header>
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

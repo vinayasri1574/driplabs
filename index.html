@@ -2,22 +2,219 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Header</title>
+    <link href="https://fonts.cdnfonts.com/css/mont" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>DRIPLABS</title>
 </head>
 <style>
 html {
     scroll-behavior: smooth;
     /* height: 5790px; */
+    
+    
 }
 body {
-    min-height: 200vh; /* Ensures scrolling is possible */
+    min-height: 200vh; 
+    font-family: 'Mont';
+    /* REMOVE this if present *//* Ensures scrolling is possible */
 }
 
+.top-bar-drips {
+            background: #0a2041f7;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
 
+        .top-bar-drips a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
 
+        .top-bar-drips i {
+            color: white;
+            font-size: 18px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+@media (max-width: 768px) { 
+    .top-bar-drips {
+        display: none;
+    }
+}
 
+        .lab-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #0a2041;
+            position: relative;
+        }
+        
+        .lab-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .lab-nav {
+            display: flex;
+            gap: 20px;
+        }
+        .lab-nav a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            padding: 0px 12px;
+            transition: color 0.3s ease-in-out;
+        }
+        .lab-nav > a::after {
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            content: "";
+            height: 2px;
+            width: 100%;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s cubic-bezier(0.694, 0, 0.335, 1);
+        }
+        .lab-nav > a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .lab-dropdown {
+            position: relative;
+        }
+        .lab-dropdown a i {
+            transition: transform 0.3s ease-in-out;
+        }
+        .lab-dropdown:hover a i {
+            transform: rotate(180deg);
+        }
+        .lab-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            background: white;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .lab-dropdown:hover .lab-dropdown-menu,
+        .lab-dropdown.active .lab-dropdown-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .lab-dropdown-menu a {
+            position: relative;
+            color: #0026ff;
+            padding: 12px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .lab-dropdown-menu a::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #0026ff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease-in-out;
+            z-index: -1;
+        }
+        .lab-dropdown-menu a:hover {
+            color: white;
+        }
+        .lab-dropdown-menu a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .lab-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .lab-book-now {
+            background: white;
+            color: #0026ff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+        }
+        .lab-book-now:hover {
+            transform: scale(1.1);
+        }
+        .lab-mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: #0026ff;
+    padding: 20px;
+    transition: right 0.5s ease-in-out;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 10000; /* Increased z-index */
+}
+
+        .lab-mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .lab-mobile-menu.active {
+            right: 0;
+        }
+        .lab-close-btn {
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .lab-nav {
+                display: none;
+            }
+            .lab-menu-btn {
+                display: block;
+            }
+        }    
     /* Hero Section */
     .hero {
         position: relative;
@@ -29,7 +226,23 @@ body {
         justify-content: flex-start; /* Align content to the left */
         padding-left: 8%;
         color: white;
+        /* z-index: 1; */
     }
+    @media (max-width: 768px) {
+    .hero {
+        height: 80vh; /* Reduce height for smaller screens */
+        padding-left: 5%; /* Adjust left padding */
+        background-position: center; /* Ensure proper background positioning */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 70vh; /* Further reduce height for smaller devices */
+        padding-left: 3%; /* Reduce padding for better content alignment */
+        background-size: cover; /* Ensure the background fits properly */
+    }
+}
 
     /* Dark Overlay */
     .overlay {
@@ -49,8 +262,8 @@ body {
     }
 
     .hero h1 {
-        font-size: 3rem;
-        font-weight: bold;
+        font-size: 2rem;
+        font-weight: 600;
         margin-bottom: 10px;
     }
 
@@ -83,24 +296,121 @@ body {
     }
 
     .btn {
-        display: inline-block;
-        padding: 12px 25px;
-        margin-right: 10px;
-        background: white;
-        color: black;
-        font-weight: bold;
-        text-decoration: none;
-        border-radius: 30px;
-        transition: 0.3s;
-        font-size: 1rem;
-    }
+    display: inline-block;
+    padding: 12px 25px;
+    margin-right: 10px;
+    background: linear-gradient(45deg, #41b9ff, #392bff);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 10px rgba(65, 109, 255, 0.6);
+    border: none;
+}
 
-    .btn:hover {
-        background: #ddd;
+/* Hover Animation */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #2bcaff, #1424ff);
+    transition: top 0.4s ease-in-out;
+    z-index: 0;
+}
+
+.btn:hover::before {
+    top: 0;
+}
+
+.btn span {
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease-in-out;
+}
+
+.btn:hover span {
+    color: black;
+}
+
+/* Neon Glow Effect */
+.btn:hover {
+    /* box-shadow: 0 0 15px rgba(20, 201, 255, 0.8), 0 0 30px rgba(43, 255, 136, 0.8); */
+    transform: scale(1.05);
+}
+/* Responsive Buttons */
+@media (max-width: 768px) {
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
     }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+}
+.btn2 {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--size-10);
+    text-decoration: none;
+    color: currentColor;
+    font-weight: bolder;
+    top: -18px;
+    padding: 10px 20px;
+}
+
+.btn-link span {
+    position: relative;
+}
+
+.btn-link span::after {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    will-change: transform;
+    transform: scaleX(0);
+    
+    transform-origin: right center;
+    transition: transform 0.5s cubic-bezier(0.694, 0, 0.335, 1);
+}
+
+.btn-link:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
     .iv-therapy-section {
-    background: #f8f4f2;
+    background: #0b0a34;
     padding: 50px 20px;
+}
+
+@media (max-width: 768px) {
+    .btn2 {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn2 {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
 }
 
 .containers {
@@ -128,12 +438,12 @@ body {
 .text-content h2 {
     font-size: 28px;
     font-weight: bold;
-    color: #3c2a2a;
+    color: #ecedef;
 }
 
 .text-content p {
     font-size: 16px;
-    color: #5a4a4a;
+    color: #ecedef;
     margin-top: 10px;
 }
 
@@ -177,7 +487,7 @@ body {
 }
 
 .icon span:after {
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.05) !important;
+    /* box-shadow: 3px 3px 8px #888 !important; */
     position: absolute;
     left: 0;
     right: 0;
@@ -188,19 +498,23 @@ body {
 }
 
 .text {
-    flex: 1;
+    
+        flex: 1;
+    position: relative;
+    right: -40px;
+
 }
 
 h4 {
     font-size: 18px;
-    color: #3c2a2a;
+    color: #ecedef;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
 .dropdown-content {
     font-size: 14px;
-    color: #5a4a4a;
+    color: #03acff;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
@@ -329,7 +643,7 @@ h4 {
 /* 3rd section */
 
 .iv-recharge-section {
-    background: #fff;
+    background: #0b0a34;
     padding: 50px 20px;
 }
 
@@ -348,8 +662,9 @@ h4 {
 }
 
 .image-container img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
+    margin-top: 20px;
 }
 
 /* Right Side - Text */
@@ -360,7 +675,7 @@ h4 {
 
 .subtitle {
     font-size: 14px;
-    color: #999;
+    color: #ecedef;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -368,23 +683,23 @@ h4 {
 h2 {
     font-size: 32px;
     font-weight: bold;
-    color: #222;
+    color: #ecedef;
     margin: 10px 0;
 }
 
 .highlight {
-    color: #ff6600; /* Orange */
+    color: #03acff; /* Orange */
     font-weight: bold;
 }
 
 .highlight2 {
-    color: #222; /* Dark Text */
+    color: #ecedef; /* Dark Text */
     font-weight: bold;
 }
 
 .description {
     font-size: 16px;
-    color: #666;
+    color: #ecedef;
     margin-bottom: 20px;
 }
 
@@ -396,7 +711,7 @@ h2 {
 
 .benefits li {
     font-size: 14px;
-    color: #444;
+    color: #ecedef;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -404,7 +719,7 @@ h2 {
 
 .benefits li::before {
     content: "•";
-    color: #ff6600;
+    color: #03acff;
     font-size: 18px;
     margin-right: 8px;
 }
@@ -422,10 +737,35 @@ h2 {
     transition: 0.3s;
 }
 
-.cta-button:hover {
-    background: #e55d00;
+@media (max-width: 992px) {
+    .container {
+        gap: 30px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
 }
+
 @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .text-container {
+        text-align: center;
+    }
+
+    .image-container img {
+        max-width: 80%;
+    }
+
     .cta-button {
         font-size: 14px;
         padding: 10px 15px;
@@ -433,6 +773,22 @@ h2 {
 }
 
 @media (max-width: 480px) {
+    .container {
+        gap: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .benefits li {
+        font-size: 12px;
+    }
+
     .cta-button {
         font-size: 12px;
         padding: 8px 12px;
@@ -446,7 +802,7 @@ h2 {
     background-repeat: no-repeat; /* Prevents repeating */
     color: white;
     padding: 50px 20px;
-    background-color: black; /* Fallback in case the image fails to load */
+    background-color: #040415; /* Fallback in case the image fails to load */
 }
 
 .discover-subtitle {
@@ -496,7 +852,7 @@ h2 {
 }
 
 .discover-tab.discover-active {
-    background-color: yellow;
+    background-color: #03acff;
     color: black;
 }
 @media (max-width: 768px) {
@@ -535,7 +891,7 @@ h2 {
 
 /* Content Section */
 .discover-content {
-    background-color: #222; /* Dark background */
+    background-color: #181c2b; /* Dark background */
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -567,12 +923,25 @@ h2 {
     z-index: 1;
 }
 
+@keyframes slideRight {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .discover-content img {
     width: 250px;
     height: auto;
     margin-right: 20px;
     border-radius: 10px;
+    animation: slideRight 0.8s ease-out forwards;
 }
+
 
 .discover-details h3 {
     font-size: 24px;
@@ -585,18 +954,52 @@ h2 {
 }
 
 .discover-order-btn {
-    background-color: red;
+    display: inline-block;
+    padding: 12px 25px;
+    margin-right: 10px;
+    background: linear-gradient(45deg, #41b9ff, #392bff);
     color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0 10px rgba(65, 109, 255, 0.6);
     border: none;
-    transition: background 0.3s ease;
 }
 
+/* Hover Animation */
+.discover-order-btn::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #2bcaff, #1424ff);
+    transition: top 0.4s ease-in-out;
+    z-index: 0;
+}
+
+.discover-order-btn:hover::before {
+    top: 0;
+}
+
+.discover-order-btn span {
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease-in-out;
+}
+
+.discover-order-btn:hover span {
+    color: black;
+}
+
+
 .discover-order-btn:hover {
-    background-color: darkred;
+    transform: scale(1.05);
 }
 @media (max-width: 768px) {
     .discover-content {
@@ -634,6 +1037,8 @@ h2 {
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
+    background: #040415;
+
 }
 
 .infusion-container {
@@ -680,7 +1085,7 @@ h2 {
 }
 
 .register-btn {
-    background-color: #b1904d;
+    background-color: #03acff;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -692,7 +1097,7 @@ h2 {
 }
 
 .register-btn:hover {
-    background-color: #a0803d;
+    background-color: #3228c8;
 }
 @media (max-width: 768px) {
     .infusion-section {
@@ -740,6 +1145,7 @@ h2 {
 .testimonial-section {
     text-align: center;
     padding: 50px 20px;
+    background-color: #040415;
 }
 
 .sub-heading {
@@ -761,11 +1167,11 @@ h2 {
 
 .description {
     font-size: 18px;
-    color: #555;
+    color: #ecedef;
 }
 
 .highlight {
-    color: #ff4d4d;
+    color: #03acff;
     font-weight: 600;
 }
 
@@ -798,7 +1204,9 @@ h2 {
     font-weight: bold;
     color: #ffc107;
     margin: 10px 0;
+    font-family: Arial, sans-serif !important;
 }
+
 
 .fact-text {
     font-size: 14px;
@@ -914,6 +1322,9 @@ h2 {
     .percentage {
         font-size: 40px;
     }
+    
+    
+
 
     .carousel {
         width: 100%;
@@ -939,7 +1350,7 @@ h2 {
 /* customer */
 
 .customer-hero-section {
-    background: #f9f9f9;
+    background: #040415;
     padding: 50px 10%;
 }
 
@@ -951,6 +1362,7 @@ h2 {
 
 .customer-text-content {
     width: 55%;
+    color: #ecedef;
 }
 
 .customer-text-content h1 {
@@ -962,7 +1374,7 @@ h2 {
 .customer-text-content p {
     font-size: 16px;
     line-height: 1.6;
-    color: #444;
+    color: #ecedef;
 }
 
 .customer-image-content {
@@ -989,12 +1401,12 @@ h2 {
 .customer-stat-box h2 {
     font-size: 48px;
     font-weight: bold;
-    color: #222;
+    color: #f6d802;
 }
 
 .customer-stat-box p {
     font-size: 16px;
-    color: #444;
+    color: #ecedef;
     font-weight: bold;
 }
 @media (max-width: 768px) {
@@ -1043,7 +1455,7 @@ h2 {
 /* customer investment */
 
 .customer-investment-section {
-    background: #F5AF23; /* Yellow background */
+    background: #040415; /* Yellow background */
     text-align: center;
     padding: 60px 20px;
     position: relative;
@@ -1059,18 +1471,18 @@ h2 {
 .customer-investment-content h1 {
     font-size: 40px;
     font-weight: bold;
-    color: #000;
+    color: #ecedef;
     margin-bottom: 10px;
 }
 
 .customer-investment-content p {
     font-size: 16px;
-    color: #222;
+    color: #040415;
     margin-bottom: 20px;
 }
 
 .customer-investment-btn {
-    background: #000;
+    background: #03acff;
     color: #fff;
     border: none;
     padding: 12px 20px;
@@ -1107,125 +1519,290 @@ h2 {
         padding: 0 10px;
     }
 }
+/* Slide-Up Animation for Text */
+h2, h3, h4, p { 
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Slide-Left Animation for Images */
+img {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When Element is in View */
+.slide-up-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-left-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* Slide-Up Animation for Text */
+.slides-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.slides-up-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide-Left Animation for Image */
+.slides-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slides-left-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* footer */
+footer {
+    background-color: #0a0f0f;
+    color: #00bfff;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Logo & Social Icons in One Row */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.footer-logo h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social a img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+/* Main Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.footer-section {
+    text-align: left;
+    width: 45%;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.areas {
+    display: flex;
+}
+
+.areas ul {
+    list-style: none;
+    padding: 0;
+    margin-right: 20px;
+}
+
+.areas li {
+    margin-bottom: 5px;
+}
+
+hr {
+    margin-top: 20px;
+    border: 0.5px solid #666;
+}
+
+/* Disclaimer & Bottom Links */
+.disclaimer {
+    font-size: 12px;
+    color: #bbb;
+    margin-top: 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.footer-bottom a {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+/* Chat Button */
+
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensures it stays on top */
+}
+
+.chat-button button {
+    background-color: #03acff;
+    color: white;
+    font-size: 18px;
+    padding: 10px 4px;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chat-button button i {
+    font-size: 28px; /* Bigger WhatsApp Icon */
+}
+
+.chat-button button:hover {
+    background-color: #1EBE5D;
+}
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+
+    .chat-button {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+.logo {
+    width: 150px;  /* Adjust width as needed */
+    height: auto;  /* Maintains aspect ratio */
+    display: block; /* Removes extra space below the image */
+    margin: 0 auto; /* Centers the image */
+}
+@media (max-width: 768px) {
+    .logo {
+        width: 120px; /* Slightly reduce size on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 100px; /* Further reduce size on smaller screens */
+    }
+}
+a i {
+    font-size: 24px; /* Adjust size */
+    margin: 0 10px;
+    color: #333; /* Default color */
+    transition: 0.3s;
+}
+
+a:hover i {
+    color: #007bff; /* Change color on hover */
+}
+
 
 </style>
 <body>
 
 <!-- Top Bar -->
-<div class="bg-blue-800 text-white text-sm py-3 px-6 flex justify-end space-x-6">
-    <a href="#" class="hover:underline">Location</a>
-    <a href="#" class="hover:underline">FAQs</a>
-    <a href="#" class="hover:underline">About Us</a>
-    <button class="hover:text-gray-300">
-        <svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.65 11.65z"></path>
-        </svg>
-    </button>
+<div class="top-bar-drips">
+    <a href="#">LOCATIONS</a>
+    <a href="#">FAQs</a>
+    <a href="#">About Us</a>
+    <i class="fas fa-search search-icon-drips"></i>
 </div>
 
-<!-- Main Navigation -->
-<header class="bg-white shadow-md">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <!-- Logo -->
-        <a href="#" class="text-xl font-bold">
-            <img src="logo.png" alt="Logo" class="h-10">
+<header class="lab-header">
+    <div class="lab-logo">
+        <a href="index.html">
+            <img src="whitelogo.png" alt="Logo" class="logo">
         </a>
-
-        <!-- Navigation -->
-        <nav class="hidden md:flex space-x-6 items-center text-blue-700 font-semibold">
-            <div class="relative group">
-                <button class="flex items-center">
-                    DRIP SELECTION
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="absolute left-0 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-white shadow-md mt-2 py-2 w-48 rounded-md pointer-events-none group-hover:pointer-events-auto">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Hydration</a>
-                    <a href="detox.html" class="block px-4 py-2 hover:bg-gray-100">Detox</a>
-                </div>
-            </div>
-        
-            <div class="relative group">
-                <button class="flex items-center">
-                    NAD+ IV DRIP
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="absolute left-0 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-white shadow-md mt-2 py-2 w-48 rounded-md pointer-events-none group-hover:pointer-events-auto">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Energy Boost</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Immunity</a>
-                </div>
-            </div>
-        
-            <div class="relative group">
-                <button class="flex items-center">
-                    AT-HOME SERVICES
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="absolute left-0 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-white shadow-md mt-2 py-2 w-48 rounded-md pointer-events-none group-hover:pointer-events-auto">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Wellness Plans</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Consultations</a>
-                </div>
-            </div>
-        
-            <div class="relative group">
-                <button class="flex items-center">
-                    FRANCHISE
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-            </div>
-        
-            <div class="relative group">
-                <button class="flex items-center">
-                    MEMBERSHIP
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
         
 
-        <!-- Book Now Button -->
-        <a href="#" class="bg-blue-700 text-white px-5 py-2 rounded-full hover:bg-blue-800 font-semibold">
-            Book Now
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </button>
     </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-6 space-y-2">
-        <a href="#" class="block text-blue-700">IV Drip Therapy</a>
-        <a href="#" class="block text-blue-700">Vitamin Shots</a>
-        <a href="#" class="block text-blue-700">Our Services</a>
-        <a href="#" class="block text-blue-700">Genetics</a>
-        <a href="#" class="block text-blue-700">Nutrients</a>
-        <a href="#" class="block text-blue-700">R LIFE Blog</a>
-        <a href="#" class="block bg-blue-700 text-white text-center py-2 rounded-md">Book Now</a>
+    
+    <nav class="lab-nav">
+        <div class="lab-dropdown">
+            <a href="#">DRIP SELECTION <i class="fas fa-chevron-down"></i></a>
+            <div class="lab-dropdown-menu">
+                <a href="#">Wellness</a>
+                <a href="#">Anti-Aging</a>
+                <a href="#">Recovery</a>
+            </div>
+        </div>
+        <a href="#">NAD+ IV DRIP</a>
+        <a href="#">AT- HOME SERVICES</a>
+        <a href="#">FRANCHISE</a>
+        <a href="#">MEMBERSHIPS</a>
+    </nav>
+    <!-- <a href="#" class="lab-book-now">Book Now</a> -->
+    <a href="#" class="btn"><span>Book Now</span></a>
+    <button class="lab-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    <div class="lab-mobile-menu" id="mobileMenu">
+        <button class="lab-close-btn" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <a href="#">IV Drip Therapy</a>
+        <a href="#">Vitamin Shots</a>
+        <a href="#">Our Services</a>
+        <a href="#">Genetics</a>
+        <a href="#">Nutrients</a>
     </div>
-
 </header>
 <section class="hero">
     <div class="hero-content">
-        <h1>IV Infusion Therapy</h1>
+        <h1>
+            Nourish, Recharge, Restore <br>
+            and get Drip'd with tailored <br>
+            IV Infusion Therapy
+        </h1>
         <p>IN HEALTH, GET DRIP'D!</p>
         
         
         <div class="hero-buttons">
-            <a href="#" class="btn">View Our Drips</a>
-            <a href="#" class="btn">Get a Membership</a>
+           
+            
+            <a href="#" class="btn"><span>View Our Drips</span></a>
+
+            <a href="#" class="btn2 btn-link">
+                <span>Get a Membership</span>
+            </a>
+            
         </div>
     </div>
 </section>
@@ -1246,7 +1823,7 @@ h2 {
             <div class="steps">
                 <div class="step" onclick="toggleDropdown(this)">
                     <div class="icon">
-                        <span><img src="icon1.png" alt="Select Drip"></span>
+                        <span><img src="drop-counter.png" alt="Select Drip"></span>
                     </div>
                     <div class="text">
                         <h4>SELECT YOUR DRIP</h4>
@@ -1258,7 +1835,7 @@ h2 {
 
                 <div class="step" onclick="toggleDropdown(this)">
                     <div class="icon">
-                        <span><img src="icon2.png" alt="Book Appointment"></span>
+                        <span><img src="event (1).png" alt="Book Appointment"></span>
                     </div>
                     <div class="text">
                         <h4>BOOK YOUR APPOINTMENT</h4>
@@ -1270,7 +1847,7 @@ h2 {
 
                 <div class="step" onclick="toggleDropdown(this)">
                     <div class="icon">
-                        <span><img src="icon3.png" alt="Quick Consultation"></span>
+                        <span><img src="stethoscope.png" alt="Quick Consultation"></span>
                     </div>
                     <div class="text">
                         <h4>QUICK CONSULTATION</h4>
@@ -1282,7 +1859,7 @@ h2 {
 
                 <div class="step" onclick="toggleDropdown(this)">
                     <div class="icon">
-                        <span><img src="icon4.png" alt="Time for Drip"></span>
+                        <span><img src="in-love (1).png " alt="Time for Drip"></span>
                     </div>
                     <div class="text">
                         <h4>TIME FOR THE DRIP</h4>
@@ -1295,10 +1872,26 @@ h2 {
         </div>
 
         <div class="image-container">
-            <img src="your-image.png" alt="IV Therapy">
+            <img src="mainmock.png" alt="IV Therapy">
         </div>
     </div>
 </section>
+<script>
+
+function toggleDropdown(element) {
+    // Toggle 'active' class on the clicked step
+    element.classList.toggle("active");
+
+    // Close other dropdowns if one is opened
+    document.querySelectorAll(".step").forEach(step => {
+        if (step !== element) {
+            step.classList.remove("active");
+        }
+    });
+}
+
+
+</script>
 
 
 
@@ -1308,7 +1901,7 @@ h2 {
     <div class="container">
         <!-- Left Side - IV Bags Image -->
         <div class="image-container">
-            <img src="iv-bags.png" alt="IV Therapy Bags">
+            <img src="mainmock.png" alt="IV Therapy Bags">
         </div>
 
         <!-- Right Side - Text Content -->
@@ -1321,15 +1914,15 @@ h2 {
 
             <!-- Bullet Points -->
             <ul class="benefits">
-                <li>🟠 IV therapy offers fast & efficient absorption of nutrients.</li>
-                <li>🟠 Customizable to address specific health concerns.</li>
-                <li>🟠 Provides quick and effective hydration.</li>
-                <li>🟠 IV therapy can be administered at your location & time.</li>
-                <li>🟠 Effective for a range of health issues & immune support.</li>
+                <li>🔵 IV therapy offers fast & efficient absorption of nutrients.</li>
+                <li>🔵 Customizable to address specific health concerns.</li>
+                <li>🔵 Provides quick and effective hydration.</li>
+                <li>🔵 IV therapy can be administered at your location & time.</li>
+                <li>🔵 Effective for a range of health issues & immune support.</li>
             </ul>
 
             <!-- Call-to-Action Button -->
-            <a href="#" class="cta-button">Book your drip now</a>
+            <a href="#" class="btn"><span>Book  your  Drips</span></a>
         </div>
     </div>
 </section>
@@ -1342,24 +1935,29 @@ h2 {
 
     <!-- Tab Buttons -->
     <div class="discover-tabs">
-        <button class="discover-tab discover-active" data-tab="fatigue">⚔️ Fatigue</button>
-        <button class="discover-tab" data-tab="immunity">🛡️ Low Immunity</button>
-        <button class="discover-tab" data-tab="sleep">🌙 Sleep Deprived</button>
-        <button class="discover-tab" data-tab="fog">💭 Mental Fog</button>
+        <button class="discover-tab discover-active" data-tab="fatigue">💖Beauty</button>
+        <button class="discover-tab" data-tab="immunity">🛡️ Optimise Health</button>
+        <button class="discover-tab" data-tab="sleep">🌙Recovery</button>
+        <button class="discover-tab" data-tab="fog">⚔️NAD+ Treatment </button>
         <button class="discover-tab" data-tab="stress">💖 Stress</button>
-        <button class="discover-tab" data-tab="vacation">🌞 Post Vacation</button>
+        <button class="discover-tab" data-tab="vacation">🌞 Weightloss</button>
     </div>
 
     <!-- Content Section -->
     <div class="discover-content">
-        <img id="discover-ivImage" src="iv-bag-fatigue.png" alt="IV Bag">
+        <img id="discover-ivImage" src="antiaging-bag.png" alt="IV Bag">
         <div class="discover-details">
             <h3 id="discover-treatmentTitle">All Inclusive IV Treatment</h3>
             <p id="discover-treatmentDesc">
                 Experience comprehensive well-being with our ‘All-Inclusive IV Treatment.’ Tailored to your needs, it offers hydration, vitamins, detox, and immune support in one session, ensuring you leave revitalized and ready to conquer the day.
             </p>
-            <button class="discover-order-btn">Order now</button>
-            <button class="discover-order-btn">Order now</button>
+            <a href="#" class="discover-order-btn"><span>Order now</span></a>
+            <a href="#" class="btn2 btn-link">
+                <span>View More</span>
+            </a>
+            
+            
+            
         </div>
     </div>
 </div>
@@ -1368,10 +1966,10 @@ h2 {
 <section class="infusion-section">
     <div class="infusion-container">
         <div class="infusion-image">
-            <img src="image.png" alt="Infusion Therapy">
+            <img src="mock.webp" alt="Infusion Therapy">
         </div>
         <div class="infusion-content">
-            <h2>DripDrip infusions for your practice</h2>
+            <h2>Driplabs infusions for your practice</h2>
             <p>Expand your offering with innovative IV therapies. Increase your sales while your patients benefit from individually tailored infusions for greater well-being and health. We support you with training and marketing material. If you are interested, simply fill out the questionnaire - we will get back to you within 48 hours.</p>
             <button class="register-btn">Please register here</button>
         </div>
@@ -1383,12 +1981,12 @@ h2 {
     <div class="infusion-container">
         
         <div class="infusion-content">
-            <h2>DripDrip infusions for your practice</h2>
-            <p>Expand your offering with innovative IV therapies. Increase your sales while your patients benefit from individually tailored infusions for greater well-being and health. We support you with training and marketing material. If you are interested, simply fill out the questionnaire - we will get back to you within 48 hours.</p>
+            <h2>Driplabs infusions for your practice</h2>
+            <p>Partner with DripLabsfor specialized IV therapy formulations or wellness products that match your brand. We are open to co-branded products, limited wellness offers and innovative solutions that promote health and vitality. Let's create something unique together. Contact us for product or event collaborations: partnerships@driplabs.in</p>
             <button class="register-btn">Please register here</button>
         </div>
         <div class="infusion-image">
-            <img src="image.png" alt="Infusion Therapy">
+            <img src="mock2.webp" alt="Infusion Therapy">
         </div>
     </div>
 </section>
@@ -1403,6 +2001,7 @@ h2 {
         <div class="fact-box">
             <h4>FACTS AND NUMBERS</h4>
             <p class="percentage">96%</p>
+
             <p class="fact-text">of customers recommend Recharge IV therapy</p>
         </div>
 
@@ -1428,8 +2027,9 @@ h2 {
         </div>
 
         <div class="carousel-buttons">
-            <button id="prev"><</button>
-            <button id="next">></button>
+            <button id="prev"><i class="fas fa-chevron-left"></i></button>
+            <button id="next"><i class="fas fa-chevron-right"></i></button>
+
         </div>
     </div>
 </section>
@@ -1438,9 +2038,9 @@ h2 {
 <section class="customer-hero-section">
     <div class="customer-container">
         <div class="customer-text-content">
-            <h1>Your health is our mission – drip by drip!</h1>
+            <h1>Your health is our mission – Get Dripp'D!</h1>
             <p>
-                At DripDrip, we are redefining wellness by putting our customers at the center of everything we do. 
+                At DripLabs, we are redefining wellness by putting our customers at the center of everything we do. 
                 We offer personalized IV therapies tailored to your needs to help you show your best side every day. 
                 By combining medical expertise, high-quality ingredients, and a focus on your well-being, we create a 
                 unique and effective wellness experience. Whether you are looking for new energy, recovery, or relaxation, 
@@ -1449,7 +2049,7 @@ h2 {
             </p>
         </div>
         <div class="customer-image-content">
-            <img src="your-image.jpg" alt="DripDrip Team">
+            <img src="mock3.webp" alt="DripDrip Team">
         </div>
     </div>
 
@@ -1478,23 +2078,82 @@ h2 {
 </section>
 
 
+
+
+<!-- footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <!-- <img src="whitelogo.png" alt="DripIV Logo" class="logo"> -->
+
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.google.com/" target="_blank"><i class="fab fa-google"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+
+            </div>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Corporate Headquarters</h3>
+                <p><strong>Los Angeles</strong><br>3415 S Sepulveda Blvd, Los Angeles, CA 90034</p>
+                <p><strong>San Diego</strong><br>11622 El Camino Real Ste 100, San Diego, CA 92130</p>
+            </div>
+            <div class="footer-section">
+                <h3>Areas we serve</h3>
+                <div class="areas">
+                    <ul>
+                        <li>Alameda</li>
+                        <li>Orange</li>
+                        <li>Santa Barbara</li>
+                        <li>San Mateo</li>
+                    </ul>
+                    <ul>
+                        <li>Los Angeles</li>
+                        <li>Riverside</li>
+                        <li>San Diego</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        
+        <p class="disclaimer">
+            The services provided and statements made have not been evaluated by the Food and Drug Administration. 
+            These products are not intended to diagnose, treat, cure, or prevent any disease. The statements made on this website 
+            do not constitute medical advice. Consult with your physician before beginning any treatment.
+        </p>
+
+        <div class="footer-bottom">
+            <p>©2025 DripLabs. All rights reserved. <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+            
+        </div>
+    </div>
+
+    <a href="https://wa.me/9182830417?text=Hi%20DripLabs!%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" class="chat-button">
+        <button><i class="fab fa-whatsapp"></i></button>
+    </a>
+    
+    
+    
+    
+</footer>
+
+
+
+
+
+
 <script>
-    document.getElementById("menu-toggle").addEventListener("click", function() {
-        document.getElementById("mobile-menu").classList.toggle("hidden");
-    });
     
-    function toggleDropdown(selectedStep) {
-    let allSteps = document.querySelectorAll(".step");
-    
-    allSteps.forEach((step) => {
-        if (step === selectedStep) {
-            step.classList.toggle("active");
-        } else {
-            step.classList.remove("active");
-        }
-    });
-}
-const tabs = document.querySelectorAll(".discover-tab");
+    const tabs = document.querySelectorAll(".discover-tab");
 const title = document.getElementById("discover-treatmentTitle");
 const description = document.getElementById("discover-treatmentDesc");
 const ivImage = document.getElementById("discover-ivImage");
@@ -1504,27 +2163,22 @@ const treatments = {
     fatigue: {
         title: "All Inclusive IV Treatment",
         desc: "Experience comprehensive well-being with our ‘All-Inclusive IV Treatment.’ Hydration, vitamins, and detox support in one session.",
-        img: "iv-bag-fatigue.png"
+        img: "antiaging-bag.png"
     },
     immunity: {
         title: "Immunity Boost IV",
         desc: "Strengthen your immune system with a blend of vitamins and antioxidants to keep you protected.",
-        img: "iv-bag-immunity.png"
+        img: "IV-bag-radiance.png"
     },
     sleep: {
         title: "Sleep Support IV",
         desc: "Promotes relaxation and deep sleep with essential nutrients and hydration.",
-        img: "iv-bag-sleep.png"
+        img: "IV-bag-pink.png"
     },
     fog: {
         title: "Mental Clarity IV",
         desc: "Enhance focus and reduce brain fog with a customized blend of essential nutrients.",
         img: "iv-bag-fog.png"
-    },
-    stress: {
-        title: "Stress Relief IV",
-        desc: "Reduce anxiety and stress with calming ingredients and hydration.",
-        img: "iv-bag-stress.png"
     },
     vacation: {
         title: "Post-Vacation Recovery IV",
@@ -1532,6 +2186,38 @@ const treatments = {
         img: "iv-bag-vacation.png"
     }
 };
+
+// Function to switch tabs with animation
+tabs.forEach(tab => {
+    tab.addEventListener("click", function () {
+        const selectedTab = this.getAttribute("data-treatment");
+
+        if (treatments[selectedTab]) {
+            // Remove old animation classes
+            title.classList.remove("slides-up-active");
+            description.classList.remove("slides-up-active");
+            ivImage.classList.remove("slides-left-active");
+
+            // Trigger reflow to restart animations
+            void title.offsetWidth;
+            void description.offsetWidth;
+            void ivImage.offsetWidth;
+
+            // Update content
+            title.textContent = treatments[selectedTab].title;
+            description.textContent = treatments[selectedTab].desc;
+            ivImage.src = treatments[selectedTab].img;
+
+            // Add new animation classes
+            setTimeout(() => {
+                title.classList.add("slides-up-active");
+                description.classList.add("slides-up-active");
+                ivImage.classList.add("slides-left-active");
+            }, 50);
+        }
+    });
+});
+
 
 // Add click event to each tab
 tabs.forEach(tab => {
@@ -1618,7 +2304,32 @@ document.addEventListener("DOMContentLoaded", function () {
     heroParagraph.innerText = ""; // Clear text for animation
     typeEffect(heroParagraph, texts, 50, 2000); // Speed = 50ms, Delay = 2s
 });
+function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+    const textElements = document.querySelectorAll("h2, h3, h4, p");
+    const imageElements = document.querySelectorAll("img");
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.tagName === "IMG") {
+                    entry.target.classList.add("slide-left-active");
+                } else {
+                    entry.target.classList.add("slide-up-active");
+                }
+            }
+        });
+    }, { threshold: 0.3 });
+
+    textElements.forEach(element => observer.observe(element));
+    imageElements.forEach(image => observer.observe(image));
+});
+
+
+
+  
 
 
 
