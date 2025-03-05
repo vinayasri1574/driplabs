@@ -26,11 +26,14 @@ body {
 }
 
 .top-bar-drips {
-            background: #0a2041f7;
+            background: #071577f7;
             padding: 10px 20px;
             display: flex;
             justify-content: flex-end;
+            border-radius: 0px 1px 21px 21px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .top-bar-drips a {
@@ -38,7 +41,7 @@ body {
             text-decoration: none;
             margin-left: 20px;
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 300;
         }
 
         .top-bar-drips i {
@@ -58,8 +61,10 @@ body {
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: #0a2041;
+            /* background: #0a2041; */
             position: relative;
+            z-index: 1;
+            font-weight: 600;
         }
         
         .lab-logo {
@@ -69,7 +74,9 @@ body {
         }
         .lab-nav {
             display: flex;
-            gap: 20px;
+            /* gap: 5px; */
+    margin-left: 50px;
+
         }
         .lab-nav a {
             position: relative;
@@ -80,19 +87,17 @@ body {
         }
         .lab-nav > a::after {
             position: absolute;
-            left: 0;
-            bottom: -4px;
-            content: "";
-            height: 2px;
-            width: 100%;
-            background: currentColor;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.5s cubic-bezier(0.694, 0, 0.335, 1);
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #fff;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.5s linear;
         }
         .lab-nav > a:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+            width: 80%;
         }
         .lab-dropdown {
             position: relative;
@@ -226,6 +231,7 @@ body {
         justify-content: flex-start; /* Align content to the left */
         padding-left: 8%;
         color: white;
+        margin-top: -140px;
         /* z-index: 1; */
     }
     @media (max-width: 768px) {
@@ -258,7 +264,8 @@ body {
     .hero-content {
         position: relative;
         max-width: 600px;
-        z-index: 2;
+        /* z-index: 2; */
+        margin-bottom: -220px;
     }
 
     .hero h1 {
@@ -1710,7 +1717,7 @@ hr {
     }
 }
 .logo {
-    width: 150px;  /* Adjust width as needed */
+    width: 170px;  /* Adjust width as needed */
     height: auto;  /* Maintains aspect ratio */
     display: block; /* Removes extra space below the image */
     margin: 0 auto; /* Centers the image */
@@ -1727,7 +1734,7 @@ hr {
     }
 }
 a i {
-    font-size: 24px; /* Adjust size */
+    font-size: 15px; /* Adjust size */
     margin: 0 10px;
     color: #333; /* Default color */
     transition: 0.3s;
@@ -1743,7 +1750,7 @@ a:hover i {
 
 <!-- Top Bar -->
 <div class="top-bar-drips">
-    <a href="#">LOCATIONS</a>
+    <a href="#">Locations</a>
     <a href="#">FAQs</a>
     <a href="#">About Us</a>
     <i class="fas fa-search search-icon-drips"></i>
@@ -1752,7 +1759,7 @@ a:hover i {
 <header class="lab-header">
     <div class="lab-logo">
         <a href="index.html">
-            <img src="whitelogo.png" alt="Logo" class="logo">
+            <img src="logo2.png" alt="Logo" class="logo">
         </a>
         
 
@@ -1760,17 +1767,17 @@ a:hover i {
     
     <nav class="lab-nav">
         <div class="lab-dropdown">
-            <a href="#">DRIP SELECTION <i class="fas fa-chevron-down"></i></a>
+            <a href="#">Drip Selection <i class="fas fa-chevron-down"></i></a>
             <div class="lab-dropdown-menu">
                 <a href="#">Wellness</a>
                 <a href="#">Anti-Aging</a>
                 <a href="#">Recovery</a>
             </div>
         </div>
-        <a href="#">NAD+ IV DRIP</a>
-        <a href="#">AT- HOME SERVICES</a>
-        <a href="#">FRANCHISE</a>
-        <a href="#">MEMBERSHIPS</a>
+        <a href="#">NAD+ IV Drip</a>
+        <a href="#">At- Home Services</a>
+        <a href="#">Franchise</a>
+        <a href="#">Memberships</a>
     </nav>
     <!-- <a href="#" class="lab-book-now">Book Now</a> -->
     <a href="#" class="btn"><span>Book Now</span></a>
@@ -1786,6 +1793,7 @@ a:hover i {
 </header>
 <section class="hero">
     <div class="hero-content">
+        
         <h1>
             Nourish, Recharge, Restore <br>
             and get Drip'd with tailored <br>
