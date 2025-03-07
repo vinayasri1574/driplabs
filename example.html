@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Indicator</title>
+    <style>
+        body {
+            height: 200vh;
+            background-color: #020B1B;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .scroll-loader {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+        .arrow {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+        }
+        svg {
+            transform: rotate(-90deg);
+        }
+        .progress-circle path {
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.2s linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-loader" onclick="scrollToTop()">
+        <svg class="progress-circle svg-content" width="50" height="50" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" stroke="rgba(255, 255, 255, 0.2)" stroke-width="4" fill="none"/>
+            <path d="M50,5 a45,45 0 0,1 0,90 a45,45 0 0,1 0,-90" 
+                  stroke="#00E1FF" stroke-width="4" fill="none" 
+                  stroke-dasharray="283" stroke-dashoffset="283" id="progressPath"/>
+        </svg>
+        <span class="arrow">&#9650;</span>
+    </div>
+
+    <script>
+        function updateScrollIndicator() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollFraction = scrollTop / docHeight;
+
+            const progressPath = document.getElementById("progressPath");
+            const circleLength = 283; // Full circumference of the circle
+            const dashOffset = circleLength - (circleLength * scrollFraction);
+
+            progressPath.style.strokeDashoffset = dashOffset;
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener("scroll", updateScrollIndicator);
+    </script>
+</body>
+</html>
