@@ -5,166 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enquire Now Button with Arrow</title>
     <style>
-        /* Floating Button */
-        .enquire-container {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            align-items: center;
-        }
-
-        /* Arrow Animation */
-        .arrow {
-            font-size: 24px;
-            color: #ff6600;
-            margin-right: 8px;
-            animation: bounce 1.5s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(-8px);
-            }
-        }
-
-        /* Enquire Button */
-        .enquire-button {
-            background: #0026ff;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 30px 0 0 30px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            writing-mode: vertical-rl;
-            text-align: center;
-            transition: background 0.3s;
-        }
-
-        .enquire-button:hover {
-            background: #001bbf;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 30px;
-            width: 350px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-content h2 {
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-
-        .modal-content input,
-        .modal-content textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .modal-content button {
-            background: #0026ff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin-top: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .modal-content button:hover {
-            background: #001bbf;
-        }
-
-        /* Close Button */
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-            color: #888;
-        }
-
-        .close:hover {
-            color: black;
-        }
+        .header-enquiry-sec.book-appointemnt {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 32, 182, .6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.header-enquiry-sec {
+    position: fixed;
+    right: -65px;
+    top: 55%;
+    transform: translateY(-55%);
+    z-index: 99;
+}
+.header-enquiry-sec .default-btn.blue {
+    background: #0b20b6;
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+    transform: rotate(-90deg);
+}
+.default-btn.blue {
+    background: #fff;
+    transition: all .3slinear;
+    border-color: #0b20b6;
+    color: #0b20b6;
+}
+.default-btn {
+    padding: 15px 65px 15px 20px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 1px;
+    color: #fff;
+    border-radius: 100px;
+    border: 1px solid #fff;
+    position: relative;
+    min-height: 56px;
+}
+.header-enquiry-sec .default-btn.blue:after {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    top: 12px;
+    right: 24px;
+}
+.default-btn.blue:after {
+    background: url('arrow.8f9b9fb2.png') no-repeat 50% #0b20b6;
+}
+.default-btn:after {
+    position: absolute;
+    content: "";
+    width: 45px;
+    height: 45px;
+    background: url('arrow.8f9b9fb2.png') no-repeat 50% #fff;
+    border-radius: 50%;
+    top: 5px;
+    right: 10px;
+    transform: rotate(135deg);
+    transition: all .3slinear;
+}
     </style>
-</head>
-<body>
+    <div class="header-enquiry-sec book-appointemnt "><div class="enq-form"><div class="blue-text text-text-base md:text-2xl">Book an Appointment</div><button type="button" class="close">X</button><form><ul><li><input class="placeholder:text-gray-900" placeholder="Tentative Date" id="Tentative_Date" min="2025-03-07" required="" type="date" name="date"></li><li><select id="service_name" class="placeholder:text-gray-900 " name="service" required=""><option value="">Select Service</option><option value="IV Therapy">IV Therapy</option><option value="Booster Shots">Booster Shots</option><option value="At Home">At Home</option><option value="Packages">Packages</option></select></li><li><select id="location" class="placeholder:text-gray-900" name="location" required=""><option value="">Select Location</option><option value="Mumbai - Worli">Mumbai - Worli</option><option value="Mumbai - Juhu">Mumbai - Juhu</option><option value="Mumbai - Powai">Mumbai - Powai</option><option value="Bangalore - Indirangar">Bangalore - Indirangar</option><option value="Bengaluru - Churchstreet">Bengaluru - Churchstreet</option></select></li><li><input class="placeholder:text-gray-900" placeholder="Full Name" id="full_name" required="" type="text" value="" name="full_name"></li><li><input class="placeholder:text-gray-900" placeholder="Phone Number" id="phone" pattern="\d*" minlength="7" maxlength="15" required="" type="text" value="" name="phone"></li><li><input class="placeholder:text-gray-900" placeholder="Email Address" id="email" required="" type="email" value="" name="email"></li><li><button type="submit" class="default-btn blue">Get REVIV’d</button></li></ul></form></div></div>
+    
+    <div class="header-enquiry-sec flex flex-wrap items-center "><div class="enq-form active"><div class="blue-text text-text-base md:text-2xl">Enquire Now</div><button type="button" class="close">X</button><form><ul><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Full Name" id="full_name" required="" type="text" value="" name="full_name"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Phone Number" id="phone" pattern="\d*" minlength="7" maxlength="15" required="" type="text" value="" name="phone"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Email Address" id="email" required="" type="email" value="" name="email"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="City" id="city" required="" type="text" name="city"></li><li><textarea class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" id="message" rows="2" placeholder="Message" name="message" required=""></textarea></li><li><button type="submit" class="default-btn blue">Send Message</button></li></ul></form></div><button type="button" class="default-btn blue" style="opacity: 1;">Enquire Now</button></div>
+    <div class="enq-form active"><div class="blue-text text-text-base md:text-2xl">Enquire Now</div><button type="button" class="close">X</button><form><ul><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Full Name" id="full_name" required="" type="text" value="" name="full_name"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Phone Number" id="phone" pattern="\d*" minlength="7" maxlength="15" required="" type="text" value="" name="phone"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Email Address" id="email" required="" type="email" value="" name="email"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="City" id="city" required="" type="text" name="city"></li><li><textarea class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" id="message" rows="2" placeholder="Message" name="message" required=""></textarea></li><li><button type="submit" class="default-btn blue">Send Message</button></li></ul></form></div>
+    <div class="blue-text text-text-base md:text-2xl">Enquire Now</div>
+    <button type="button" class="close">X</button>
+    <form><ul><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Full Name" id="full_name" required="" type="text" value="" name="full_name"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Phone Number" id="phone" pattern="\d*" minlength="7" maxlength="15" required="" type="text" value="" name="phone"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="Email Address" id="email" required="" type="email" value="" name="email"></li><li><input class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" placeholder="City" id="city" required="" type="text" name="city"></li><li><textarea class="placeholder:text-gray-900 placeholder:font-normal placeholder:text-xs sm:placeholder:text-base" id="message" rows="2" placeholder="Message" name="message" required=""></textarea></li><li><button type="submit" class="default-btn blue">Send Message</button></li></ul></form>
+    <button type="button" class="default-btn blue" style="opacity: 1;">Enquire Now</button>
 
-    <!-- Floating Enquire Button with Arrow -->
-    <div class="enquire-container">
-        <div class="arrow">&#x2192;</div> <!-- Arrow pointing to the button -->
-        <div class="enquire-button" id="openModal">Enquire Now</div>
-    </div>
 
-    <!-- Modal -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h2>Enquire Now</h2>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="4" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
 
-    <script>
-        // Get modal elements
-        const modal = document.getElementById("modal");
-        const openModal = document.getElementById("openModal");
-        const closeModal = document.getElementById("closeModal");
 
-        // Open modal on button click
-        openModal.addEventListener("click", () => {
-            modal.style.display = "block";
-        });
 
-        // Close modal when clicking the close button
-        closeModal.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-
-        // Close modal when clicking outside the modal content
-        window.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-    </script>
 
 </body>
 </html>
