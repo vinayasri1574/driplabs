@@ -3,72 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scroll Indicator</title>
+    <title>Enquire Now Button</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <style>
         body {
-            height: 200vh;
-            background-color: #020B1B;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            height: 100vh;
+            background-color: #f4f4f4;
         }
-        .scroll-loader {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-        }
-        .arrow {
-            position: absolute;
+
+        .enquire-button {
+            background: #071577f7;
             color: white;
-            font-size: 20px;
+            padding: 15px 12px;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s;
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            gap: 5px;
         }
-        svg {
-            transform: rotate(-90deg);
+
+        .enquire-button span {
+            display: block;
+            font-weight: bold;
+            text-transform: uppercase;
         }
-        .progress-circle path {
-            stroke-linecap: round;
-            transition: stroke-dashoffset 0.2s linear;
+
+        .enquire-button .icon {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .enquire-button .icon i {
+            color: white;
+            font-size: 18px;
+            transform: rotate(45deg);
         }
     </style>
 </head>
 <body>
-    <div class="scroll-loader" onclick="scrollToTop()">
-        <svg class="progress-circle svg-content" width="50" height="50" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" stroke="rgba(255, 255, 255, 0.2)" stroke-width="4" fill="none"/>
-            <path d="M50,5 a45,45 0 0,1 0,90 a45,45 0 0,1 0,-90" 
-                  stroke="#00E1FF" stroke-width="4" fill="none" 
-                  stroke-dasharray="283" stroke-dashoffset="283" id="progressPath"/>
-        </svg>
-        <span class="arrow">&#9650;</span>
+
+    <div class="enquire-button" id="openModal">
+        <span>Enquire</span>
+        <span>Now</span>
+        <div class="icon">
+            <i class="bi bi-arrow-up-right"></i>
+        </div>
     </div>
 
-    <script>
-        function updateScrollIndicator() {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollFraction = scrollTop / docHeight;
-
-            const progressPath = document.getElementById("progressPath");
-            const circleLength = 283; // Full circumference of the circle
-            const dashOffset = circleLength - (circleLength * scrollFraction);
-
-            progressPath.style.strokeDashoffset = dashOffset;
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        window.addEventListener("scroll", updateScrollIndicator);
-    </script>
 </body>
 </html>
